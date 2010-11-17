@@ -19,7 +19,7 @@ SqueezeBox adds a whole page sliding accordion effect that was originally seen o
         <!-- Squeeze Box script -->
         <script src="js/jquery.squeezeBox.js" type="text/javascript"></script>
 
-* **CSS** ("squeezeBox.ui.css" to use with a jQuery UI theme; see "squeezeBox.css" for the css needed in non-jQuery UI themes)
+* **CSS**: ("squeezeBox.ui.css" shown and used with a jQuery UI theme; see "squeezeBox.css" for non-jQuery UI themes)
 
         /* override ui default margin for accordions */
         .sb-overall-wrapper.ui-accordion .ui-accordion-header {
@@ -30,7 +30,7 @@ SqueezeBox adds a whole page sliding accordion effect that was originally seen o
           overflow: visible;
         }
 
-* **HTML** Minimal setup; add IDs to the headers (div and h3) to used with browser hash marks.
+* **HTML**: Minimal setup; add IDs to the headers (div.header and h3) to use with browser hash marks.
 
          <div id="squeezeBox">
 
@@ -60,7 +60,7 @@ SqueezeBox adds a whole page sliding accordion effect that was originally seen o
 
          </div>
 
-* **Script** (default settings shown)
+* **Script**: (default settings shown)
 
         $(window).load(function(){
           $('#squeezeBox').squeezeBox({
@@ -130,7 +130,7 @@ SqueezeBox adds a whole page sliding accordion effect that was originally seen o
 
 **Methods**
 
-* **Get** Get the active header as follows:
+* **Get**: Get the active header as follows:
 
         // get jQuery object of active header
         var header = $('#squeezeBox').data('squeezeBox').getHeader();
@@ -139,7 +139,7 @@ SqueezeBox adds a whole page sliding accordion effect that was originally seen o
     * If no active header is found, nothing is returned (use "header.length" to verify).
     * Use "header[0].id", to get the id of the header or use "header.text()" to get the header title.
 
-* **Set** You can set the active header multiple ways:
+* **Set**: You can set the active header multiple ways:
     1. On initial page load, include a window location hash of the target id. The following link take you to the demo page with the "#h2" header active - all headers above it will be collapsed. See "Known Problems &amp; Bugs" section below for more information.
 
         [http://mottie.github.com/squeezeBox/index.html#h2][3]
