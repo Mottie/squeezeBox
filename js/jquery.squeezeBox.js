@@ -4,7 +4,6 @@
  * Dual licensed under the MIT and GPL licenses.
  *
  */
-
 (function($){
 	$.squeezeBox = function(el, options){
 
@@ -68,7 +67,6 @@
 				// make headers clickable
 				.click(function(){
 					base.setHeader(base.allHeaders.index($(this)));
-					return false;
 				})
 				// Add header styling
 				.each(function(){
@@ -103,7 +101,7 @@
 				var tar = $(el);
 				el = (tar.length) ? base.allHeaders.index(tar) : 0;
 			}
-			// add 5 extra pixels to ensure the selected block shows as active
+			// add a few extra pixels to ensure the selected block shows as active
 			var newScrollTop = 1;
 			base.allHeaders.each(function(i){
 				if (i == el) {
