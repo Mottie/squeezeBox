@@ -1,0 +1,16 @@
+/*
+ ** SqueezeBox CSS **
+ *  use this CSS when already using a jQuery UI theme
+ *  The option "useUI" must be set to true (default setting)
+ *  None of the images in the image folder are required.
+ */
+
+/* override ui default margin for accordions */
+.sb-overall-wrapper.ui-accordion .ui-accordion-header {
+	margin-top: 0 !important;
+}
+
+/* chrome - override overflow, because content has scrollbars  */
+.sb-overall-wrapper.ui-accordion .ui-accordion-content {
+	overflow: visible;
+}

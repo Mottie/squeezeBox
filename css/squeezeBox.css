@@ -1,0 +1,50 @@
+/*
+ ** SqueezeBox CSS **
+ *  Use this CSS when NOT using a jQuery UI theme
+ *  The option "useUI" must be set to false
+ *  This CSS uses the all of the images in the image folder
+ */
+
+/* non-UI CSS */
+.sb-accordion { width: 100%; }
+.sb-accordion .sb-accordion-header { cursor: pointer; position: relative; margin-top: 0; zoom: 1; }
+.sb-accordion .sb-accordion-header a { display: block; font-size: 1em; padding: .5em .5em .5em .7em; }
+.sb-accordion-icons .sb-accordion-header a { padding-left: 2.2em; }
+.sb-accordion .sb-accordion-header .sb-icon { position: absolute; left: .5em; top: 50%; margin-top: -8px; }
+.sb-accordion .sb-accordion-content { padding: 1em 2.2em; border-top: 0; margin-top: -2px; position: relative; top: 1px; margin-bottom: 2px; overflow: visible; display: none; zoom: 1; }
+.sb-accordion .sb-accordion-content-active { display: block; }
+
+/* Component containers
+----------------------------------*/
+.sb-widget { font-family: Segoe UI, Arial, sans-serif; font-size: 1.1em; }
+.sb-widget .sb-widget { font-size: 1em; }
+.sb-widget input, .sb-widget select, .sb-widget textarea, .sb-widget button { font-family: Segoe UI, Arial, sans-serif; font-size: 1em; }
+.sb-widget-content { border: 1px solid #666666; background: #000000 url(../images/content.png) 50% bottom repeat-x; color: #ffffff; }
+.sb-widget-content a { color: #ffffff; }
+.sb-widget-header { border: 1px solid #333333; background: #333333 url(../images/header.png) 50% 50% repeat-x; color: #ffffff; font-weight: bold; }
+.sb-widget-header a { color: #ffffff; }
+
+/* Interaction states
+----------------------------------*/
+.sb-state-default, .sb-widget-content .sb-state-default, .sb-widget-header .sb-state-default { border: 1px solid #666666; background: #555555 url(../images/header.png) 50% 50% repeat-x; font-weight: bold; color: #eeeeee; }
+.sb-state-default a, .sb-state-default a:link, .sb-state-default a:visited { color: #eeeeee; text-decoration: none; }
+.sb-state-hover, .sb-widget-content .sb-state-hover, .sb-widget-header .sb-state-hover, .sb-widget-header .sb-state-focus { border: 1px solid #59b4d4; background: #0078a3 url(../images/hover.png) 50% 50% repeat-x; font-weight: bold; color: #ffffff; }
+.sb-state-hover a, .sb-state-hover a:hover { color: #ffffff; text-decoration: none; }
+.sb-state-active, .sb-widget-content .sb-state-active, .sb-widget-header .sb-state-active { border: 1px solid #ffaf0f; background: #f58400 url(../images/active.png) 50% 50% repeat-x; font-weight: bold; color: #ffffff; }
+.sb-state-active a, .sb-state-active a:link, .sb-state-active a:visited { color: #ffffff; text-decoration: none; }
+.sb-widget :active { outline: none; }
+
+/* states and images */
+.sb-icon { width: 16px; height: 16px; background-image: url(../images/arrows.png); }
+.sb-state-default .ui-icon-triangle-1-s { background-position: top left; }
+.sb-state-active .ui-icon-triangle-1-s {background-position: top right; }
+.sb-state-default .ui-icon-triangle-1-e { background-position: bottom left; }
+.sb-state-active .ui-icon-triangle-1-e {background-position: bottom right; }
+
+/* Layout helpers
+----------------------------------*/
+.sb-helper-reset { margin: 0; padding: 0; border: 0; outline: 0; line-height: 1.3; text-decoration: none; font-size: 100%; list-style: none; }
+
+/* Corner radius */
+.sb-corner-all { -moz-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px; }
+.sb-corner-bottom { -moz-border-radius-bottomleft: 6px; -webkit-border-bottom-left-radius: 6px; border-bottom-left-radius: 6px; -moz-border-radius-bottomright: 6px; -webkit-border-bottom-right-radius: 6px; border-bottom-right-radius: 6px; }
