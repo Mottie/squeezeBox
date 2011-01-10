@@ -1,5 +1,5 @@
 /*
- * squeezeBox v1.0
+ * squeezeBox v1.0.1
  * By Rob Garrison (aka Mottie & Fudgey)
  * Dual licensed under the MIT and GPL licenses.
  *
@@ -24,7 +24,19 @@
 
 			// objects
 			base.doc = $(document);
-			base.win = $('html, body');
+			base.win = $(window);
+			// Opera scrolling fix - http://www.zachstronaut.com/posts/2009/01/18/jquery-smooth-scroll-bugs.html
+			var scrollElement = 'html, body';
+			$('html, body').each(function(){
+				var initScrollTop = $(this).attr('scrollTop');
+				$(this).attr('scrollTop', initScrollTop + 1);
+				if ($(this).attr('scrollTop') === initScrollTop + 1) {
+					scrollElement = this.nodeName.toLowerCase();
+					$(this).attr('scrollTop', initScrollTop);
+					return false;
+				}
+			});
+			base.page = $(scrollElement);
 			base.headers = base.$el.children().filter(base.options.headers);
 			base.allHeaders = base.$el.find(base.options.blockHeaders).add( base.headers );
 
@@ -82,8 +94,8 @@
 						.wrap( $('<div />', { 'class' : 'sb-header-wrapper', height: $(this).outerHeight(), css : { margin: 0, padding: 0, border: 0 } }) );
 				});
 
-			$(window).resize(function(){ if (base.enabled){base.updateHeaders();} });
-			$(window).scroll(function(){ if (base.enabled){base.updateHeaders();} });
+			base.win.resize(function(){ if (base.enabled){base.updateHeaders();} });
+			base.win.scroll(function(){ if (base.enabled){base.updateHeaders();} });
 
 			// If ID is in the hash, target that header... it doesn't always work
 			if (window.location.hash) {
@@ -96,22 +108,22 @@
 
 		// Set header
 		base.setHeader = function(el){
+			var tar, newScrollTop = 1;
 			// convert hash/id to indexed number
 			if (/^#/.test(el)) {
-				var tar = $(el);
+				tar = $(el);
 				el = (tar.length) ? base.allHeaders.index(tar) : 0;
 			}
 			// add a few extra pixels to ensure the selected block shows as active
-			var newScrollTop = 1;
 			base.allHeaders.each(function(i){
-				if (i == el) {
+				if (i === el) {
 					 newScrollTop += $(this).parent().offset().top;
 				} else if ( i < el ) {
 					 newScrollTop -= $(this).parent().outerHeight();
 				}
 			});
 			base.enabled = false;
-			base.win.animate({ scrollTop : newScrollTop }, base.options.animationTime);
+			base.page.animate({ scrollTop : newScrollTop }, base.options.animationTime);
 			base.enabled = true;
 			base.updateHeaders();
 		};
